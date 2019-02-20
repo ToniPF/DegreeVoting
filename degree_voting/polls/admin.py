@@ -11,6 +11,8 @@ from .polls_models.qualification import Qualification
 from .polls_models.subject_comment import SubjectComment
 from .polls_models.teacher_comment import TeacherComment
 
+from .polls_models.description import HomeDescription
+
 
 # Register your polls_models here.
 
@@ -27,4 +29,6 @@ admin.site.register(Qualification)
 # Registers related with Comments
 admin.site.register(SubjectComment)
 admin.site.register(TeacherComment)
+
+admin.site.register(HomeDescription)
 
