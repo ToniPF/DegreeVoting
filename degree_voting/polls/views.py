@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .polls_models.qualification import Qualification
 from .polls_models.assessment import Assessment
-
+from .polls_models.description import HomeDescription
 
 
 def home(request):
@@ -9,6 +9,7 @@ def home(request):
         'title': 'Home',
         'header': 'polls/header.html',
         'footer': 'polls/footer.html',
+        'description': HomeDescription.objects.filter(display=True).first(),
     }
     return render(request, 'polls/home.html', context)
 
