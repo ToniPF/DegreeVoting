@@ -1,4 +1,5 @@
-<link rel="stylesheet" type="text/css" href="{% static 'polls/footer.css' %}"> <!-- no funciona css? -->
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/footer.css' %}">
 <footer>
     <div> 
       <ul class="left">
@@ -8,7 +9,6 @@
       
       <ul class="right">
         <li>Contact information : <a href="mailto:sample@gmail.com">sample@gmail.com</a></li>
-      </ul>
-      
+      </ul>   
     </div>
 </footer>
