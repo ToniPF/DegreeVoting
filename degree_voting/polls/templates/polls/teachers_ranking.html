@@ -1,0 +1,48 @@
+{% extends "polls/base.html" %}
+{% load static %}
+
+<!-- Carregar el fitxer CSS principal -->
+<link rel="stylesheet" type="text/css" href="{% static 'polls/ranking.css' %}">
+
+{% block content%}
+
+<h1>This is the {{ title }} Page</h1>
+
+
+ <div class="row">
+
+    <div class="column">
+        <h4>Best Teacher Qualifies</h4>
+
+            {% for best in best_qualifies %}
+                <article class="media content-section">
+                  <div class="media-body">
+                    <div class="article-metadata">
+                      <a class="mr-2" href="#"> # {{ best.teacher.code }}</a>
+                      <small class="text-muted"> Mark: {{ best.mark }}</small>
+                    </div>
+                    <h2><a class="article-title" href="#">{{ best.teacher.name }}</a></h2>
+                  </div>
+                </article>
+            {% endfor %}
+     </div>
+
+    <div class="column">
+        <h4>Worst Teacher Qualifies</h4>
+        {% for worst in worst_qualifies %}
+            <article class="media content-section">
+              <div class="media-body">
+                <div class="article-metadata">
+                  <a class="mr-2" href="#"> # {{ worst.teacher.code }}</a>
+                  <small class="text-muted"> Mark: {{ worst.mark }}</small>
+                </div>
+                <h2><a class="article-title" href="#">{{ worst.teacher.title }}</a></h2>
+              </div>
+            </article>
+        {% endfor %}
+    </div>
+
+</div>
+
+
+{% endblock content%}
