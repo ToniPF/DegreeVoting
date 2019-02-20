@@ -1,18 +1,17 @@
 {% extends "polls/base.html" %}
-{% block content%}
 
-<!-- <h1>This is the Ranking Page</h1> -->
+{% block content%}
 <h1>This is the {{ title }} Page</h1>
 
     {% for best in best_qualifies %}
         <article class="media content-section">
           <div class="media-body">
             <div class="article-metadata">
-              <a class="mr-2" href="#">{{ best.subject_id.code }}</a>
+              <a class="mr-2" href="#"> # {{ best.subject.code }}</a>
               <small class="text-muted"> Mark: {{ best.mark }}</small>
             </div>
-            <h2><a class="article-title" href="#">{{ best.subject_id.title }}</a></h2>
-            <p class="article-content">{{ best.subject_id.description }}</p>
+            <h2><a class="article-title" href="#">{{ best.subject.title }}</a></h2>
+            <p class="article-content">{{ best.subject.description }}</p>
           </div>
         </article>
     {% endfor %}
