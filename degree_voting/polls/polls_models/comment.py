@@ -10,4 +10,3 @@ class Comment(models.Model):
     
     def __repr__(self):
         return '{id: {0}, comment: {1}}'.format(str(self.pk), str(self.comment))
-    
