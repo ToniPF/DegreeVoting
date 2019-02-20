@@ -12,10 +12,10 @@
       <img src="" width="30" height="30" class="d-inline-block align-top" alt="Logo">
     </a>
     <!-- Opcions-->
-    <a class="nav-item nav-link" href="#">Home</a>
-    <a class="nav-item nav-link" href="#">Subjects</a>
-    <a class="nav-item nav-link" href="#">Teachers</a>
-    <a class="nav-item nav-link" href="#">Degrees</a>
+    <a class="nav-item nav-link" href="{% url 'polls-home' %}">Home</a>
+    <a class="nav-item nav-link" href="{% url 'subjects-ranking' %}">Subjects</a>
+    <a class="nav-item nav-link" href="{% url 'teachers-ranking' %}">Teachers</a>
+    <a class="nav-item nav-link" href="{% url 'polls-degrees' %}">Degrees</a>
     
     <!-- Enllaços dreta-->
     <div class="nav navbar-nav navbar-right">
