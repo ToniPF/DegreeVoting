@@ -125,4 +125,6 @@ STATIC_URL = '/static/'
 
 CRISPY_TEMPLATE_PATH = 'bootstrap4'
 
-LOGIN_REDIRECT_URL = 'polls-home'
+# LOGIN_REDIRECT_URL = 'polls-home'
+LOGIN_REDIRECT_URL = 'profile'
+LOGIN_URL = 'login'
