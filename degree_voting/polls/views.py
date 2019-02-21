@@ -3,6 +3,8 @@ from .polls_models.qualification import Qualification
 from .polls_models.assessment import Assessment
 from .polls_models.description import HomeDescription
 
+from django.contrib.auth.forms import UserCreationForm
+
 
 def home(request):
     context = {
@@ -10,6 +12,7 @@ def home(request):
         'header': 'polls/header.html',
         'footer': 'polls/footer.html',
         'description': HomeDescription.objects.filter(display=True).first(),
+        'form': UserCreationForm()
     }
     return render(request, 'polls/home.html', context)
 

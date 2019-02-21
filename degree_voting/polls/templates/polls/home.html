@@ -1,5 +1,7 @@
 {% extends "polls/base.html" %}
+{% load static %}
 {% load markdown_deux_tags %}
+{% load crispy_forms_tags %}
 {% block content%}
 
 <main role="main" class="container-fluid"></main>
@@ -17,9 +19,32 @@
         </div>
 
         <div class="col-sm-4">
-            <div class="shadow-sm card bg-light h-50">
-                <b>Insertar aqui per fer Sign Up or Login</b>
-                <p class="text-center">Have an account? <a href="#">Log In</a> </p>
+            <div class="shadow-sm card bg-light h-5">
+
+                <!-- REGISTER AND LOGIN -->
+                <div class="content-section">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <!--
+                        <fieldset class="form-group">
+                            <legend class="border-bottom mb-1"> Join Today </legend>
+                            {{ form|crispy }}
+                        </fieldset>
+                        -->
+                        <div class="form-group">
+                            <button class="btn btn-outline-info" type="submit">Sign Up</button>
+                        </div>
+                    </form>
+
+                    <div class="border-top pt-3">
+                        <small class="text-muted">
+                            Already Have An Account? <a class="ml-2" href="#">Sign In</a>
+                        </small>
+                    </div>
+                </div>
+                <!-- END REGISTER AND LOGIN -->
+
             </div>
             <div class="shadow-sm card bg-light mt-5 h-25">
                 <a href="{% url 'teachers-ranking' %}" class="btn btn-primary mt-3">
@@ -36,6 +61,5 @@
             </div>
         </div>
     </div>
-
 
 {% endblock content%}
