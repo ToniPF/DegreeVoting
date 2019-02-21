@@ -17,25 +17,68 @@
         </div>
 
         <div class="col-sm-4">
+            <br />
             <div class="shadow-sm card bg-light h-50">
-                <b>Insertar aqui per fer Sign Up or Login</b>
-                <p class="text-center">Have an account? <a href="#">Log In</a> </p>
+                <article class="card-body mx-auto" style="max-width: 400px;">
+	                <h4 class="card-title mt-3 text-center">Create Account</h4>
+                    <p class="divider-text">
+                        <span class="bg-light"></span>
+                    </p>
+                    <form>
+	                    <div class="form-group input-group">
+		                    <div class="input-group-prepend">
+		                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		                    </div>
+                            <input name="" class="form-control" placeholder="Full name" type="text">
+                        </div> <!-- form-group// -->
+                        <div class="form-group input-group">
+    	                    <div class="input-group-prepend">
+		                        <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+		                    </div>
+                            <input name="" class="form-control" placeholder="Email address" type="email">
+                        </div> <!-- form-group// -->
+                        <div class="form-group input-group">
+    	                    <div class="input-group-prepend">
+		                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		                    </div>
+                            <input class="form-control" placeholder="Create password" type="password">
+                        </div> <!-- form-group// -->
+                        <div class="form-group input-group">
+    	                    <div class="input-group-prepend">
+		                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		                    </div>
+                            <input class="form-control" placeholder="Repeat password" type="password">
+                        </div> <!-- form-group// -->
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
+                        </div> <!-- form-group// -->
+                    </form>
+                    <p class="text-center">Have an account? <a href="#">Log In</a> </p>
+                </article>
             </div>
-            <div class="shadow-sm card bg-light mt-5 h-25">
-                <a href="{% url 'teachers-ranking' %}" class="btn btn-primary mt-3">
+            <br />
+            <div class="shadow-sm card bg-light h-25">
+                <br />
+                <br />
+                <div align="center">
+                    <a href="{% url 'teachers-ranking' %}" class="btn btn-primary mt-3">
                     <h2>Teacher Ranking</h2>
                 </a>
                 <a href="{% url 'subjects-ranking' %}" class="btn btn-primary mt-3">
                     <h2>Subject Ranking</h2>
                 </a>
+                </div>
+
             </div>
-            <div class="shadow-sm card bg-light mt-5">
-                <a href="{% url 'polls-degrees' %}" class="btn btn-primary">
-                    <h2>Degrees</h2>
-                </a>
+            <br />
+            <div class="shadow-sm card bg-light">
+                <div align="center">
+                    <a href="{% url 'polls-degrees' %}" class="btn btn-primary">
+                        <h2>Degrees</h2>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-
 
 {% endblock content%}
