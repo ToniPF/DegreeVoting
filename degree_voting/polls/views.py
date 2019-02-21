@@ -36,7 +36,7 @@ def teachers_ranking(request):
         'worst_qualifies': worst_qualifies,
         'best_qualifies': best_qualifies,
     }
-    return render(request, 'polls/ranking.html', context)
+    return render(request, 'polls/teachers_ranking.html', context)
 
 
 def subjects_ranking(request):
@@ -53,7 +53,7 @@ def subjects_ranking(request):
         'best_qualifies': best_qualifies,
     }
 
-    return render(request, 'polls/ranking.html', context)
+    return render(request, 'polls/subjects_ranking.html', context)
 
 
 def get_top_qualifying(maximum, listed):
