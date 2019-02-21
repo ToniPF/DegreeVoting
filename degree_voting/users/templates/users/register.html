@@ -1,12 +1,16 @@
+
+<title>Polls - {{ context.title }}</title>
+
 {% include "polls/header.html" %}
 
+
+<div class="container">
     <div class="content-section">
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">
-                    {{ form }}
-                </legend>
+                <legend class="border-bottom mb-4"> Join Today</legend>
+                {{ context.form.as_p }}
             </fieldset>
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">Sign Up</button>
@@ -18,3 +22,5 @@
             </small>
         </div>
     </div>
+</div>
+

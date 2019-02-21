@@ -18,6 +18,17 @@
 
         <div class="col-sm-4">
             <br />
+
+            <!--SHOW MESSAGES-->
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tag }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <!--END SHOW MESSAGES-->
+
             <div class="shadow-sm card bg-light h-50">
                 <article class="card-body mx-auto" style="max-width: 400px;">
 	                <h4 class="card-title mt-3 text-center">Create Account</h4>
