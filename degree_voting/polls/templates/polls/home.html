@@ -8,32 +8,34 @@
             <div class="web-name">
                 <h1><b>Polls</b></h1>
             </div>
-            <div class="col-sm-2>
-                <img src="#" alt="Imatge decorativa">
+            <div class="col-sm-2">
+                <img src="" alt="Imatge decorativa">
+            </div>
             <div style="text-align: justify" class="col-sm-10">
                 {{ description.text|markdown }}
             </div>
         </div>
-    </div>
-    <div class="col-sm-4">
-        <div class="shadow-sm card bg-light h-50">
-            <b>Insertar aqui per fer Sign Up or Login</b>
-            <p class="text-center">Have an account? <a href="#">Log In</a> </p>
+
+        <div class="col-sm-4">
+            <div class="shadow-sm card bg-light h-50">
+                <b>Insertar aqui per fer Sign Up or Login</b>
+                <p class="text-center">Have an account? <a href="#">Log In</a> </p>
+            </div>
+            <div class="shadow-sm card bg-light mt-5 h-25">
+                <a href="{% url 'teachers-ranking' %}" class="btn btn-primary mt-3">
+                    <h2>Teacher Ranking</h2>
+                </a>
+                <a href="{% url 'subjects-ranking' %}" class="btn btn-primary mt-3">
+                    <h2>Subject Ranking</h2>
+                </a>
+            </div>
+            <div class="shadow-sm card bg-light mt-5">
+                <a href="{% url 'polls-degrees' %}" class="btn btn-primary">
+                    <h2>Degrees</h2>
+                </a>
+            </div>
         </div>
-        <div class="shadow-sm card bg-light mt-5 h-25">
-            <a href="#" class="btn btn-primary mt-3">
-                <h2>Teacher Ranking</h2>
-            </a>
-            <a href="#" class="btn btn-primary mt-3">
-                <h2>Subject Ranking</h2>
-            </a>
-        </div>
-        <div class="shadow-sm card bg-light mt-5">
-            <a href="#" class="btn btn-primary">
-                <h2>Degrees</h2>
-            </a>
-        </div>
     </div>
-    </div>
+
 
 {% endblock content%}
