@@ -8,10 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    
-    <!-- Carregar el fitxer CSS principal -->
-    <link rel="stylesheet" type="text/css" href="#"> <!-- {% static 'path' %} -->
-    
+
     {% if title %}
         <title>Polls - {{ title }}</title>
     {% else %}
@@ -19,18 +16,14 @@
     {% endif %}
   </head>
   <body>
-    {% if header %}
-        {% include header %}
-    {% endif %}
-     
+    {% include "polls/header.html" %}
+
     <!-- INSERTAR AQUI EL CODI DE LA WEB-->
     <div class="container">
         {% block content %}{% endblock %}
     </div>
 
-    {% if footer %}
-        {% include footer %}
-    {% endif %}
+    {% include "polls/footer.html" %}
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -38,6 +31,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <!-- Carregar el fitxer CSS principal -->
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/base.css' %}">
   </body>
 </html>
 

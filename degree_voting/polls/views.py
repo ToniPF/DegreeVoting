@@ -7,8 +7,6 @@ from .polls_models.description import HomeDescription
 def home(request):
     context = {
         'title': 'Home',
-        'header': 'polls/header.html',
-        'footer': 'polls/footer.html',
         'description': HomeDescription.objects.filter(display=True).first(),
     }
     return render(request, 'polls/home.html', context)
@@ -17,8 +15,6 @@ def home(request):
 def degrees(request):
     context = {
         'title': 'Degrees',
-        'header': 'polls/header.html',
-        'footer': 'polls/footer.html',
     }
     return render(request, 'polls/degrees.html', context)
 
@@ -31,8 +27,6 @@ def teachers_ranking(request):
 
     context = {
         'title': 'Teachers Ranking',
-        'header': 'polls/header.html',
-        'footer': 'polls/footer.html',
         'worst_qualifies': worst_qualifies,
         'best_qualifies': best_qualifies,
     }
@@ -47,8 +41,6 @@ def subjects_ranking(request):
 
     context = {
         'title': 'Subject Ranking',
-        'header': 'polls/header.html',
-        'footer': 'polls/footer.html',
         'worst_qualifies': worst_qualifies,
         'best_qualifies': best_qualifies,
     }

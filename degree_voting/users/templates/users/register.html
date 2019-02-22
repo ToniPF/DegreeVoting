@@ -1,9 +1,7 @@
+{% extends "polls/base.html" %}
 {% load crispy_forms_tags %}
-<title>Polls - register</title>
 
-{% include "polls/header.html" %}
-
-<div class="container">
+{% block content %}
     <div class="content-section">
         <form method="POST">
             {% csrf_token %}
@@ -21,6 +19,4 @@
             </small>
         </div>
     </div>
-</div>
-
-{% include "polls/footer.html" %}
+{% endblock content %}

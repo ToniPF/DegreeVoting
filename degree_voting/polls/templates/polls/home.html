@@ -29,7 +29,7 @@
             {% endif %}
             <!--END SHOW MESSAGES-->
 
-            <div class="shadow-sm card bg-light h-50">
+            <div class="shadow-sm card bg-light">
                 <article class="card-body mx-auto" style="max-width: 400px;">
 	                <h4 class="card-title mt-3 text-center">Create Account</h4>
                     <p class="divider-text">
@@ -68,19 +68,21 @@
                 </article>
             </div>
             <br />
-            <div class="shadow-sm card bg-light h-25">
+            <div class="shadow-sm card bg-light">
                 <br />
                 <br />
                 <div align="center">
                     <a href="{% url 'teachers-ranking' %}" class="btn btn-primary mt-3">
-                    <h2>Teacher Ranking</h2>
-                </a>
-                <a href="{% url 'subjects-ranking' %}" class="btn btn-primary mt-3">
-                    <h2>Subject Ranking</h2>
-                </a>
+                        <h2>Teacher Ranking</h2>
+                    </a>
+                    <a href="{% url 'subjects-ranking' %}" class="btn btn-primary mt-3">
+                        <h2>Subject Ranking</h2>
+                    </a>
                 </div>
-
+                <br />
+                <br />
             </div>
+
             <br />
             <div class="shadow-sm card bg-light">
                 <div align="center">
@@ -92,4 +94,4 @@
         </div>
     </div>
 
-{% endblock content%}
+{% endblock content %}

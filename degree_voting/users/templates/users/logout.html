@@ -1,14 +1,14 @@
-<title>Polls - logout</title>
+{% extends "polls/base.html" %}
 
-{% include "polls/header.html" %}
-
-<div class="container">
-    <h3>You have been logged out.</h3>
-    <div class="content-section">
-        <div class="border-top pt-3">
-            <small class="text-muted">
-                <a href="{% url 'login' %}">Log In Again</a>
-            </small>
+{% block content %}
+    <div class="container">
+        <h3>You have been logged out.</h3>
+        <div class="content-section">
+            <div class="border-top pt-3">
+                <small class="text-muted">
+                    <a href="{% url 'login' %}">Log In Again</a>
+                </small>
+            </div>
         </div>
     </div>
-</div>
+{% endblock content %}
