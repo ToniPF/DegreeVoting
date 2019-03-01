@@ -1,0 +1,42 @@
+
+
+body {
+    background: antiquewhite;
+    color: black; /* font color */
+    font-size: 1em; /* relative size */
+}
+
+footer {
+    margin-bottom: 0;
+    border-radius: .1em;
+    background: dodgerblue;
+    color: antiquewhite; /* font color */
+}
+
+.navbar-inverse {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-nav {
+    display:inline-block;
+}
+
+.navbar-header {
+    display:inline-block;
+    margin: 1em;
+}
+
+.active {
+    display:inline-block;
+}
+
+.custom {
+    display:inline-block;
+}
+
+.navbar-right {
+    float: right;
+    margin: 1em;
+}
