@@ -6,7 +6,7 @@
             App
           </a>
             {% if user.is_authenticated %}
-                <li class="nav-item"><a class="nav-link" href="{% url 'polls-home' %}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'polls-degrees' %}">Home</a></li>
             {% else %}
                 <li class="nav-item"><a class="nav-link" href="{% url 'polls-home' %}">Home</a></li>
              {% endif %}
