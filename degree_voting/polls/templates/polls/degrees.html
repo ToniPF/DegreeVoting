@@ -1,6 +1,39 @@
 {% extends "polls/base.html" %}
 {% block content%}
 
-<h1>This is the Degrees Page</h1>
+<main role="main" class="container-fluid"></main>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="text-center">
+                <p><h1>This is the Degrees Page</h1></p>
+                <p>This is a list of the degrees available at the moment</p>
+            </div>
+            <div class="content text-center">
+                {% for degree in degrees %}
+                <article class="media content-section">
+                  <div class="media-body">
+                    <div class="article-metadata">
+                      <a class="mr-2" href="#">{{ degree.university }}</a>
+                      <small class="text-muted">{{ degree.ects }}</small>
+                    </div>
+                    <div class="article-header">
+                        <h2><a class="article-title" href="#">{{ degree.title }}</a></h2>
+                    </div>
+                    <p class="article-content">
+                        {{ degree.description }}
+                    </p>
+                  </div>
+                </article>
+                {% endfor %}
+            </div>
+            <ul class="pagination justify-content-center" style="margin:20px 0">
+                <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                  <li class="page-item disabled"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item disabled"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item disabled"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </div>
+    </div>
 
 {% endblock content%}

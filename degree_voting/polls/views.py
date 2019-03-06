@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .polls_models.qualification import Qualification
 from .polls_models.assessment import Assessment
 from .polls_models.description import HomeDescription
+from .polls_models.degree import Degree
 
 
 def home(request):
@@ -15,6 +16,7 @@ def home(request):
 def degrees(request):
     context = {
         'title': 'Degrees',
+        'degrees': Degree.objects.all(),
     }
     return render(request, 'polls/degrees.html', context)
 
