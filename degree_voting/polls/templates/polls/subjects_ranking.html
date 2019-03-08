@@ -1,17 +1,11 @@
 {% extends "polls/base.html" %}
-{% load static %}
-
-<!-- Carregar el fitxer CSS principal -->
-<link rel="stylesheet" type="text/css" href="{% static 'polls/ranking.css' %}">
-
 {% block content%}
 
 <h1>This is the {{ title }} Page</h1>
 
-
  <div class="row">
 
-    <div class="column">
+    <div class="col-sm-6 text-center">
         <h4>This is the Best Subjects Qualifies</h4>
 
             {% for best in best_qualifies %}
@@ -29,7 +23,7 @@
             {% endfor %}
      </div>
 
-    <div class="column">
+    <div class="col-sm-6 text-center">
         <h4>This is the Worst Subjects Qualifies</h4>
         {% for worst in worst_qualifies %}
             <article class="media content-section">
