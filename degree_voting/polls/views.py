@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.views.generic import DetailView
+
 from .polls_models.qualification import Qualification
 from .polls_models.assessment import Assessment
 from .polls_models.description import HomeDescription
@@ -19,6 +21,12 @@ def degrees(request):
         'degrees': Degree.objects.all(),
     }
     return render(request, 'polls/degrees.html', context)
+
+
+class DegreeDetailView(DetailView):
+    model = Degree
+    template_name = 'polls/degree_info.html'
+    context_object_name = 'degree'
 
 
 def teachers_ranking(request):
