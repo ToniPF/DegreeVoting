@@ -4,18 +4,23 @@
 <main role="main" class="container-fluid"></main>
     <div class="row">
         <div class="col-sm-4">
-            <h1>This is the Degrees Page</h1>
+            <h1>This is the X Degree Page</h1>
             <div id="accordion">
-
               <div class="card">
                 <div class="card-header">
                   <a class="card-link" data-toggle="collapse" href="#collapseOne">
-                    Collapsible Group Item #1
+                    Primer
                   </a>
                 </div>
                 <div id="collapseOne" class="collapse show" data-parent="#accordion">
                   <div class="card-body">
-                    Lorem ipsum..
+                      <ul>
+                          {% for item in context %}
+                      {% if item.course == 1 %}
+                        <li><a href="#">{{ item.subject_id }}</a></li>
+                      {% endif %}
+                    {% endfor %}
+                      </ul>
                   </div>
                 </div>
               </div>
@@ -23,7 +28,7 @@
               <div class="card">
                 <div class="card-header">
                   <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
-                    Collapsible Group Item #2
+                    Segon
                   </a>
                 </div>
                 <div id="collapseTwo" class="collapse" data-parent="#accordion">
@@ -36,10 +41,22 @@
               <div class="card">
                 <div class="card-header">
                   <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-                    Collapsible Group Item #3
+                    Tercer
                   </a>
                 </div>
                 <div id="collapseThree" class="collapse" data-parent="#accordion">
+                  <div class="card-body">
+                    Lorem ipsum..
+                  </div>
+                </div>
+              </div>
+                <div class="card">
+                <div class="card-header">
+                  <a class="collapsed card-link" data-toggle="collapse" href="#collapseFour">
+                    Quart
+                  </a>
+                </div>
+                <div id="collapseFour" class="collapse" data-parent="#accordion">
                   <div class="card-body">
                     Lorem ipsum..
                   </div>

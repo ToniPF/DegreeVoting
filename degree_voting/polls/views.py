@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import DetailView
+from django.views.generic import DetailView, ListView
 
 from .polls_models.course import Course
 from .polls_models.qualification import Qualification
@@ -24,13 +24,14 @@ def degrees(request):
     return render(request, 'polls/degrees.html', context)
 
 
-class DegreeDetailView(DetailView):
-    context_object_name = 'degree'
+class DegreeDetailView(ListView):
+    context_object_name = 'context'
     template_name = 'polls/degree_info.html'
 
     def get_queryset(self):
         self.degree = get_object_or_404(Degree, id=self.kwargs['pk'])
         return Course.objects.filter(degree_id=self.degree)
+
 
 
 def teachers_ranking(request):
