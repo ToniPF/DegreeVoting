@@ -7,5 +7,5 @@ urlpatterns = [
     path('degrees/', views.degrees, name='polls-degrees'),
     path('teachers-ranking/', views.teachers_ranking, name='teachers-ranking'),
     path('subjects-ranking/', views.subjects_ranking, name='subjects-ranking'),
-    path('degree/<int:pk>/', DegreeDetailView.as_view, name='degree_info'),
+    path('degrees/<int:pk>/', DegreeDetailView.as_view(), name='degree_info'),
 ]
