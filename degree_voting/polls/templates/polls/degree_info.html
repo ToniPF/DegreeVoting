@@ -2,73 +2,44 @@
 {% block content%}
 
 <main role="main" class="container-fluid"></main>
+<h1>This is the X Degree Page</h1>
+<br />
     <div class="row">
+        {% regroup context|dictsort:"course" by course as course_list %}
         <div class="col-sm-4">
-            <h1>This is the X Degree Page</h1>
             <div id="accordion">
+             {% for course in course_list %}
               <div class="card">
                 <div class="card-header">
-                  <a class="card-link" data-toggle="collapse" href="#collapseOne">
-                    Primer
+                  <a class="collapsed card-link" data-toggle="collapse" href="#collapse{{ course.grouper }}">
+                    {% if forloop.counter == 1 %}
+                        <h3>Primer</h3>
+                    {% elif forloop.counter == 2 %}
+                        <h3>Segon</h3>
+                    {% elif forloop.counter == 3 %}
+                        <h3>Tercer</h3>
+                    {% elif forloop.counter == 4 %}
+                        <h3>Quart</h3>
+                    {% elif forloop.counter == 5 %}
+                        <h3>Cinquè</h3>
+                    {% endif %}
                   </a>
                 </div>
-                <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                <div id="collapse{{ course.grouper }}" class="collapse" data-parent="#accordion">
                   <div class="card-body">
                       <ul>
-                          {% for item in context %}
-                      {% if item.course == 1 %}
-                        <li><a href="#">{{ item.subject_id }}</a></li>
-                      {% endif %}
-                    {% endfor %}
+                          {% for subject in course.list %}
+                        <li><a href="#">{{ subject.subject_id }}</a></li>
+                          {% endfor %}
                       </ul>
                   </div>
                 </div>
               </div>
-
-              <div class="card">
-                <div class="card-header">
-                  <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
-                    Segon
-                  </a>
-                </div>
-                <div id="collapseTwo" class="collapse" data-parent="#accordion">
-                  <div class="card-body">
-                    Lorem ipsum..
-                  </div>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card-header">
-                  <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-                    Tercer
-                  </a>
-                </div>
-                <div id="collapseThree" class="collapse" data-parent="#accordion">
-                  <div class="card-body">
-                    Lorem ipsum..
-                  </div>
-                </div>
-              </div>
-                <div class="card">
-                <div class="card-header">
-                  <a class="collapsed card-link" data-toggle="collapse" href="#collapseFour">
-                    Quart
-                  </a>
-                </div>
-                <div id="collapseFour" class="collapse" data-parent="#accordion">
-                  <div class="card-body">
-                    Lorem ipsum..
-                  </div>
-                </div>
-              </div>
-
+                {% endfor %}
             </div>
         </div>
         <div class="col-sm-8">
 
         </div>
     </div>
-
-
 {% endblock content%}
