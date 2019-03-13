@@ -9,8 +9,5 @@ class Teacher(models.Model):
     
     def __str__(self):
         return str(self.name)
-    
-    def __repr__(self):
-        return '{id: {0}, name: {1}, email: {2}, image: {3}}'.\
-            format(str(self.pk), str(self.name), str(self.email), str(self.image))
+
 
