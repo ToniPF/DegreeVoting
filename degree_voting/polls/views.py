@@ -1,4 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from django.views.generic import DetailView, ListView
+
+from .polls_models.course import Course
 from .polls_models.qualification import Qualification
 from .polls_models.assessment import Assessment
 from .polls_models.description import HomeDescription
@@ -19,6 +22,28 @@ def degrees(request):
         'degrees': Degree.objects.all(),
     }
     return render(request, 'polls/degrees.html', context)
+
+
+class DegreeDetailView(ListView):
+    context_object_name = 'subjects_by_course'
+    template_name = 'polls/degree_info.html'
+
+    def get_queryset(self):
+        self.degree = get_object_or_404(Degree, id=self.kwargs['pk'])
+        return Course.objects.filter(degree_id=self.degree)
+
+    def get_context_data(self, **kwargs):
+        context = super(DegreeDetailView, self).get_context_data(**kwargs)
+        self.assessments = []
+        self.qualifications = []
+        # for course in context['subjects_by_course']:
+            # self.assessments.append(Assessment.objects.filter(subject_id=course.subject_id))
+            # self.qualifications.append(Assessment.objects.filter(subject_id=course.subject_id))
+
+        # XXX Gives an error
+        context['worst_subjects'], context['best_subjects'] = get_top_qualifying(3, self.assessments)
+        context['worst_teachers'], context['best_teachers'] = get_top_qualifying(3, self.qualifications)
+        return context
 
 
 def teachers_ranking(request):
