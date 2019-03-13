@@ -25,9 +25,9 @@ def make_database():
 
 def add_degrees(filename):
     with open(filename, 'r') as f:
-        for line in f.readlines():
+        for i, line in enumerate(f.readlines()):
             params = line.split('|')
-            add_degree(params[0], params[1], params[2], params[3])
+            add_degree(i, params[0], params[1], params[2], params[3])
 
 
 def add_subjects(filename):
@@ -37,8 +37,16 @@ def add_subjects(filename):
             add_subject(params[0], params[1], params[2], params[3])
 
 
-def add_degree(title, ects, description, university):
+def add_courses(filename):
+    with open(filename, 'r') as f:
+        for line in f.readlines():
+            params = line.split('|')
+            add_subject(params[0], params[1], params[2])
+
+
+def add_degree(index, title, ects, description, university):
     degree = Degree(title=title, ects=ects, description=description, university=university)
+    degree.id = index
     degree.save()
 
 
