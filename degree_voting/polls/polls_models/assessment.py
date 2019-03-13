@@ -13,7 +13,3 @@ class Assessment(models.Model):
         return 'Subject: {0}\t - Mark: {1}\t - Difficulty: {2}'.\
             format(str(self.subject), str(self.mark), str(self.difficulty))
 
-    def __repr__(self):
-        # return '{Subject: {0}, Mark: {1}, Difficulty: {2} , Amount: {3}}'. \
-        #    format(str(self.subject.code), str(self.mark), str(self.difficulty), str(self.amount))
-        return 'PATATA'

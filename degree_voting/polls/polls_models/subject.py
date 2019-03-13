@@ -11,7 +11,3 @@ class Subject(models.Model):
     def __str__(self):
         return '{} {}'.format(str(self.code), str(self.title))
 
-    def __repr__(self):
-        return '{id: {0}, title: {1}, ects: {2}, description: {3}}'. \
-            format(str(self.code), str(self.title), str(self.ects),
-                   str(self.description))

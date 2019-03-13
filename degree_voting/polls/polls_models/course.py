@@ -27,8 +27,3 @@ class Course(models.Model):
     
     def __str__(self):
         return '{} {}'.format(str(self.degree_id), str(self.subject_id))
-    
-    def __repr__(self):
-        return '{id: {0}, degree_id: {1}, subject_id: {2}, course: {3}}'.\
-            format(str(self.pk), str(self.degree_id), str(self.subject_id),
-                   str(self.course))
