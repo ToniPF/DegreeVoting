@@ -24,6 +24,11 @@ def degrees(request):
     return render(request, 'polls/degrees.html', context)
 
 
+class AssessmentDetailView(DetailView):
+    model = Assessment
+    template = 'polls/assessment_detail.html'
+
+
 class DegreeDetailView(ListView):
     context_object_name = 'subjects_by_course'
     template_name = 'polls/degree_info.html'
@@ -44,7 +49,7 @@ class DegreeDetailView(ListView):
         # context['worst_subjects'], context['best_subjects'] = get_top_qualifying(3, self.assessments)
         # context['worst_teachers'], context['best_teachers'] = get_top_qualifying(3, self.qualifications)
         context['title'] = self.degree.title
-        print(context)
+        # print(context)
         return context
 
 
@@ -85,7 +90,7 @@ def get_top_qualifying(maximum, listed):
     if listed:
         length = len(listed)
         if length >= maximum:
-            worst_qualifies = (reversed(listed.order_by('mark')[-maximum:]))
+            worst_qualifies = (reversed(listed.order_by('mark')[maximum:]))
             best_qualifies = listed.order_by('mark')[:maximum]
         else:
             worst_qualifies = (reversed(listed.order_by('mark')))
