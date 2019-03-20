@@ -16,11 +16,10 @@ class Command(BaseCommand):
 
 
 def make_database():
-    # TO CLEAN DB:
-    # $ python manage.py flush
     path = os.getcwd()
     add_degrees(path + '/data/degrees.data')
     add_subjects(path + '/data/subjects.data')
+    add_courses(path + '/data/courses.data')
 
 
 def add_degrees(filename):
@@ -41,7 +40,7 @@ def add_courses(filename):
     with open(filename, 'r') as f:
         for line in f.readlines():
             params = line.split('|')
-            add_subject(params[0], params[1], params[2])
+            add_course(params[0], params[1], params[2])
 
 
 def add_degree(index, title, ects, description, university):
@@ -81,7 +80,7 @@ def add_teacher_comment(teacher_id, comment):
 
 
 def add_course(degree_id, subject_id, course):
-    degree = Degree.objects.filter(degree_id)
-    subject = Subject.objects.filter(subject_id)
-    new_course = Course(degree_id=degree, subject_id=subject, course=Course.COURSE_LIST[course-1])
+    degree = Degree.objects.get(id=degree_id)
+    subject = Subject.objects.get(code=subject_id)
+    new_course = Course(degree_id=degree, subject_id=subject, course=course)
     new_course.save()
