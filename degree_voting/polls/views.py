@@ -36,13 +36,15 @@ class DegreeDetailView(ListView):
         context = super(DegreeDetailView, self).get_context_data(**kwargs)
         self.assessments = []
         self.qualifications = []
-        # for course in context['subjects_by_course']:
-            # self.assessments.append(Assessment.objects.filter(subject_id=course.subject_id))
-            # self.qualifications.append(Assessment.objects.filter(subject_id=course.subject_id))
+        for course in context['subjects_by_course']:
+            self.assessments.append(Assessment.objects.filter(subject_id=course.subject_id))
+            self.qualifications.append(Assessment.objects.filter(subject_id=course.subject_id))
 
         # XXX Gives an error
-        context['worst_subjects'], context['best_subjects'] = get_top_qualifying(3, self.assessments)
-        context['worst_teachers'], context['best_teachers'] = get_top_qualifying(3, self.qualifications)
+        # context['worst_subjects'], context['best_subjects'] = get_top_qualifying(3, self.assessments)
+        # context['worst_teachers'], context['best_teachers'] = get_top_qualifying(3, self.qualifications)
+        context['title'] = self.degree.title
+        print(context)
         return context
 
 

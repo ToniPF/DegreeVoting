@@ -2,10 +2,10 @@
 {% block content%}
 
 <main role="main" class="container-fluid"></main>
-<h1>This is the X Degree Page</h1>
+<h1>This is the {{ title }} Page</h1>
 <br />
     <div class="row">
-        {% regroup context|dictsort:"course" by course as course_list %}
+        {% regroup subjects_by_course|dictsort:"course" by course as course_list %}
         <div class="col-sm-4">
             <div id="accordion">
              {% for course in course_list %}
