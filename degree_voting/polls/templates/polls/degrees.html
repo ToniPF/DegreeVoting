@@ -13,13 +13,13 @@
                 <article class="media content-section">
                   <div class="media-body">
                     <div class="article-metadata">
-                      <a class="mr-2" href="#">{{ degree.university }}</a>
+                      <small class="mr-2">{{ degree.university }}</small>
                       <small class="text-muted">{{ degree.ects }}</small>
                     </div>
                     <div class="article-header">
-                        <h2><a class="article-title" href="#">{{ degree.title }}</a></h2>
+                        <h2><a class="article-title" href="{% url 'degree_info' degree.id %}">{{ degree.title }}</a></h2>
                     </div>
-                    <p class="article-content">
+                    <p class="article-content text-center">
                         {{ degree.description }}
                     </p>
                   </div>
