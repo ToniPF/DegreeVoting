@@ -85,7 +85,7 @@ def get_top_qualifying(maximum, listed):
     if listed:
         length = len(listed)
         if length >= maximum:
-            worst_qualifies = (reversed(listed.order_by('mark')[-maximum:]))
+            worst_qualifies = list(reversed(listed.order_by('mark')))[:maximum]
             best_qualifies = listed.order_by('mark')[:maximum]
         else:
             worst_qualifies = (reversed(listed.order_by('mark')))
