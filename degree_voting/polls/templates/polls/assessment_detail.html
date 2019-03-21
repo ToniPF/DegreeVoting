@@ -1,3 +1,8 @@
+{% extends "polls/base.html" %}
+{% block content%}
+
 <h1>Hello world</h1>
 
-<h2>{{ object.subject.title }}</h2>
+<h2>{{ subject_with_grade.subject.title }}</h2>
+
+{% endblock content%}

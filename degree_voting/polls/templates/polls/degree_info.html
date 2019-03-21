@@ -29,7 +29,7 @@
                   <div class="card-body">
                       <ul>
                           {% for subject in course.list %}
-                        <li><a href="#">{{ subject.subject_id }}</a></li>
+                        <li><a href="{% url 'subject_info' subject.subject_id.code %}">{{ subject.subject_id }}</a></li>
                           {% endfor %}
                       </ul>
                   </div>
@@ -39,6 +39,21 @@
             </div>
         </div>
         <div class="col-sm-8">
+            <div>
+                <h4>This is the Best Subjects Qualifies</h4>
+                {% for best in best_subjects %}
+                    <article class="media content-section">
+                      <div class="media-body">
+                        <div class="article-metadata">
+                          <a class="mr-2" href="#"> # {{ best.subject.code }}</a>
+                          <small class="text-muted"> Mark: {{ best.mark }}</small>
+                            <small class="text-muted"> Difficulty: {{ best.difficulty }}</small>
+                        </div>
+                        <h4><a class="article-title" href="#">{{ best.subject.title }}</a></h4>
+                      </div>
+                    </article>
+                {% endfor %}
+            </div>
 
         </div>
     </div>
