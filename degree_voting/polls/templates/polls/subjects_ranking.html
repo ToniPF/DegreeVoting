@@ -1,8 +1,8 @@
 {% extends "polls/base.html" %}
 {% block content%}
-
+<br>
 <h1>This is the {{ title }} Page</h1>
-
+<br>
  <div class="row">
 
     <div class="col-sm-6 text-center">
@@ -10,7 +10,7 @@
 
             {% for best in best_qualifies %}
                 <article class="media content-section">
-                  <div class="media-body">
+                  <div class="media-body border">
                     <div class="article-metadata">
                       <a class="mr-2" href="#"> # {{ best.subject.code }}</a>
                       <small class="text-muted"> Mark: {{ best.mark }}</small>
@@ -20,6 +20,7 @@
                     <p class="article-content">{{ best.subject.description }}</p>
                   </div>
                 </article>
+                <br>
             {% endfor %}
      </div>
 
@@ -27,7 +28,7 @@
         <h4>This is the Worst Subjects Qualifies</h4>
         {% for worst in worst_qualifies %}
             <article class="media content-section">
-              <div class="media-body">
+              <div class="media-body border">
                 <div class="article-metadata">
                   <a class="mr-2" href="#"> # {{ worst.subject.code }}</a>
                   <small class="text-muted"> Mark: {{ worst.mark }}</small>
@@ -37,10 +38,11 @@
                 <p class="article-content">{{ worst.subject.description }}</p>
               </div>
             </article>
+            <br>
         {% endfor %}
     </div>
 
 </div>
-
+<br><br>
 
 {% endblock content%}
