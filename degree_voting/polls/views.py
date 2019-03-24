@@ -6,6 +6,7 @@ from .polls_models.qualification import Qualification
 from .polls_models.assessment import Assessment
 from .polls_models.description import HomeDescription
 from .polls_models.degree import Degree
+from .polls_models.subject import Subject
 
 
 def home(request):
@@ -24,6 +25,21 @@ def degrees(request):
     return render(request, 'polls/degrees.html', context)
 
 
+class AssessmentDetailView(DetailView):
+    context_object_name = 'subject_with_grade'
+    template_name = 'polls/assessment_detail.html'
+
+    def get_queryset(self):
+        self.subject = get_object_or_404(Subject, code=self.kwargs['pk'])
+        return Assessment.objects.filter(subject=self.subject)
+
+    def get_context_data(self, **kwargs):
+        context = super(AssessmentDetailView, self).get_context_data(**kwargs)
+        context['subject'] = self.subject
+        context['title'] = self.subject.code
+        return context
+
+
 class DegreeDetailView(ListView):
     context_object_name = 'subjects_by_course'
     template_name = 'polls/degree_info.html'
@@ -34,6 +50,7 @@ class DegreeDetailView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(DegreeDetailView, self).get_context_data(**kwargs)
+
         self.assessments, self.qualifications = [], []
         for course in context['subjects_by_course']:
             self.assessments.append(list(Assessment.objects.filter(subject_id=course.subject_id)))
@@ -83,11 +100,11 @@ def get_top_qualifying(maximum, listed):
     if listed:
         length = len(listed)
         if length >= maximum:
-            worst_qualifies = list(reversed(listed.order_by('mark')))[:maximum]
-            best_qualifies = listed.order_by('mark')[:maximum]
+            worst_qualifies = listed.order_by('mark')[:maximum]
+            best_qualifies = list(reversed(listed.order_by('mark')))[:maximum]
         else:
-            worst_qualifies = (reversed(listed.order_by('mark')))
-            best_qualifies = (listed.order_by('mark'))
+            worst_qualifies = listed.order_by('mark')
+            best_qualifies = list(reversed(listed.order_by('mark')))
 
     return worst_qualifies, best_qualifies
 

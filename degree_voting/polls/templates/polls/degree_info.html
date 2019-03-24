@@ -30,7 +30,7 @@
                   <div class="card-body">
                       <ul>
                           {% for subject in course.list %}
-                        <li><a href="#">{{ subject.subject_id }}</a></li>
+                        <li><a href="{% url 'subject_info' subject.subject_id.code %}">{{ subject.subject_id }}</a></li>
                           {% endfor %}
                       </ul>
                   </div>
