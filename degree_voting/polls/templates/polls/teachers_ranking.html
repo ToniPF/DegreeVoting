@@ -1,8 +1,9 @@
 {% extends "polls/base.html" %}
 {% block content%}
 
+<br>
 <h1>This is the {{ title }} Page</h1>
-
+<br>
 
  <div class="row">
 
@@ -11,14 +12,16 @@
 
             {% for best in best_qualifies %}
                 <article class="media content-section">
-                  <div class="media-body">
+                  <div class="media-body border">
                     <div class="article-metadata">
-                      <a class="mr-2" href="#"> # {{ best.teacher.code }}</a>
+                      <a class="mr-2" href="#"> # {{ best.teacher_id.pk }}</a>
                       <small class="text-muted"> Mark: {{ best.mark }}</small>
                     </div>
-                    <h2><a class="article-title" href="#">{{ best.teacher.name }}</a></h2>
+                    <h4><a class="article-title" href="#">{{ best.teacher_id.name }}</a></h4>
+                      <h6> {{ best.teacher_id.email }} </h6>
                   </div>
                 </article>
+                <br>
             {% endfor %}
      </div>
 
@@ -26,18 +29,21 @@
         <h4>Worst Teacher Qualifies</h4>
         {% for worst in worst_qualifies %}
             <article class="media content-section">
-              <div class="media-body">
-                <div class="article-metadata">
-                  <a class="mr-2" href="#"> # {{ worst.teacher.code }}</a>
-                  <small class="text-muted"> Mark: {{ worst.mark }}</small>
-                </div>
-                <h2><a class="article-title" href="#">{{ worst.teacher.title }}</a></h2>
-              </div>
+              <div class="media-body border">
+                 <div class="article-metadata">
+                     <a class="mr-2" href="#"> # {{ worst.teacher_id.pk }}</a>
+                     <small class="text-muted"> Mark: {{ worst.mark }}</small>
+                    </div>
+                    <h4><a class="article-title" href="#">{{ worst.teacher_id.name }}</a></h4>
+                      <h6> {{ worst.teacher_id.email }} </h6>
+                  </div>
             </article>
+            <br>
         {% endfor %}
     </div>
 
 </div>
 
+<br><br>
 
 {% endblock content%}
