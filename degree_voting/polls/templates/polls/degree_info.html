@@ -2,6 +2,7 @@
 {% block content%}
 
 <main role="main" class="container-fluid"></main>
+<br>
 <h1>This is the {{ title }} Page</h1>
 <br />
     <div class="row">
@@ -40,6 +41,80 @@
         </div>
         <div class="col-sm-8">
 
+            <div class="border">
+                <h4>This is the Best Subjects Qualifies</h4>
+
+            {% for best in best_subjects %}
+                <article class="media content-section">
+                  <div class="media-body">
+                    <div class="article-metadata">
+                      <a class="mr-2" href="#"> {{ best.0.subject.title }}</a>
+                      <small class="text-muted"> Mark: {{ best.0.mark }}</small>
+                        <small class="text-muted"> Difficulty: {{ best.0.difficulty }}</small>
+                    </div>
+                    <h2><a class="article-title" href="#">{{ best.subject.title }}</a></h2>
+                    <p class="article-content">{{ best.subject.description }}</p>
+                  </div>
+                </article>
+            {% endfor %}
+            </div>
+
+            <br>
+
+            <div class="border">
+                 <h4>This is the Worst Subjects Qualifies</h4>
+
+            {% for worst in worst_subjects %}
+                <article class="media content-section">
+                  <div class="media-body">
+                    <div class="article-metadata">
+                      <a class="mr-2" href="#"> {{ worst.0.subject.title }}</a>
+                      <small class="text-muted"> Mark: {{ worst.0.mark }}</small>
+                        <small class="text-muted"> Difficulty: {{ best.0.difficulty }}</small>
+                    </div>
+                    <h2><a class="article-title" href="#">{{ worst.subject.title }}</a></h2>
+                    <p class="article-content">{{ worst.subject.description }}</p>
+                  </div>
+                </article>
+            {% endfor %}
+            </div>
+
+            <br>
+
+            <div class="border">
+                <h4>This is the Best Teachers Qualifies</h4>
+
+            {% for best in best_teachers %}
+                <article class="media content-section">
+                  <div class="media-body">
+                    <div class="article-metadata">
+                      <a class="mr-2" href="#"> {{ best.0.teacher_id }}</a>
+                      <small class="text-muted"> Mark: {{ best.0.mark }}</small>
+                    </div>
+                    <br>
+                  </div>
+                </article>
+            {% endfor %}
+            </div>
+
+            <br>
+
+            <div class="border">
+                 <h4>This is the Worst Teachers Qualifies</h4>
+
+            {% for worst in worst_teachers %}
+                <article class="media content-section">
+                  <div class="media-body">
+                    <div class="article-metadata">
+                      <a class="mr-2" href="#"> {{ worst.0.teacher_id }}</a>
+                      <small class="text-muted"> Mark: {{ worst.0.mark }}</small>
+                    </div>
+                    <br>
+                  </div>
+                </article>
+            {% endfor %}
+            </div>
         </div>
     </div>
+    <br>
 {% endblock content%}

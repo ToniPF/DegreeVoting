@@ -36,7 +36,7 @@ class DegreeDetailView(ListView):
         context = super(DegreeDetailView, self).get_context_data(**kwargs)
         self.assessments, self.qualifications = [], []
         for course in context['subjects_by_course']:
-            self.assessments.append(Assessment.objects.filter(subject_id=course.subject_id))
+            self.assessments.append(list(Assessment.objects.filter(subject_id=course.subject_id)))
             self.qualifications.append(Qualification.objects.filter(subject_id=course.subject_id))
 
         context['worst_subjects'], context['best_subjects'] = get_top_for_degrees(3, self.assessments)
