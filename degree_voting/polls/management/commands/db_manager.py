@@ -33,10 +33,7 @@ def add_degrees(filename):
 
 
 def add_subjects(filename):
-    with open(filename, 'r') as f:
-        for line in f.readlines():
-            params = line.split('|')
-            add_subject(params[0], params[1], params[2], params[3])
+    _add_with_four_params(func=add_subject, filename=filename)
 
 
 def add_courses(filename):
@@ -54,14 +51,11 @@ def add_teachers(filename):
 
 
 def add_qualifications(filename):
-    with open(filename, 'r') as f:
-        for line in f.readlines():
-            params = line.split('|')
-            add_qualification(params[0], params[1], params[2], params[3])
+    _add_with_four_params(func=add_qualification, filename=filename)
 
 
 def add_assessments(filename):
-    _add_with_four_params(add_assessment, filename)
+    _add_with_four_params(func=add_assessment, filename=filename)
 
 
 def _add_with_four_params(func, filename):
