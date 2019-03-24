@@ -29,5 +29,5 @@ La comanda crea també un superusuari per a la pàgina web amb el nom *admin* i 
 ## Pàgines en funcionament
 Actualment les pàgines que estan en funcionament són la *Home*, des d'on es pot navegar a les pàgines de *Degrees*, *Teachers* i *Subjects*.
 Una vegada a la pàgina de *Degrees* es pot entrar en la pàgina d'un dels graus i trobar el llistat d'assignatures per cursos.
-Actualment, però encara no estan desenvolupades les pàgines de cadascuna de les assignatures de cadascun dels graus, així que aquests enllaços no porten enlloc.
+A més a més, les pàgines de cadascuna de les assignatures de cadascun dels graus també estàn desenvolupades i mostren la informació de l'assignatura, juntament amb el resum de la valoració fins al moment.
 Cal dir també que el panell lateral del *home*, el panell *Create Account* encara no està operatiu, però es poden crear comptes d'usuari, fer login i logout des de la barra superior sense cap problema.
