@@ -27,10 +27,12 @@ def degrees(request):
 
 class AssessmentDetailView(DetailView):
     context_object_name = 'subject_with_grade'
+    slug_field = "subject_id"
+    slug_url_kwarg = "subject_id"
     template_name = 'polls/assessment_detail.html'
 
     def get_queryset(self):
-        self.subject = get_object_or_404(Subject, code=self.kwargs['pk'])
+        self.subject = get_object_or_404(Subject, code=self.kwargs['subject_id'])
         return Assessment.objects.filter(subject=self.subject)
 
     def get_context_data(self, **kwargs):
