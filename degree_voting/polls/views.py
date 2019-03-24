@@ -34,17 +34,15 @@ class DegreeDetailView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(DegreeDetailView, self).get_context_data(**kwargs)
-        self.assessments = []
-        self.qualifications = []
+        self.assessments, self.qualifications = [], []
         for course in context['subjects_by_course']:
             self.assessments.append(Assessment.objects.filter(subject_id=course.subject_id))
-            self.qualifications.append(Assessment.objects.filter(subject_id=course.subject_id))
+            self.qualifications.append(Qualification.objects.filter(subject_id=course.subject_id))
 
-        # XXX Gives an error
-        # context['worst_subjects'], context['best_subjects'] = get_top_qualifying(3, self.assessments)
-        # context['worst_teachers'], context['best_teachers'] = get_top_qualifying(3, self.qualifications)
+        context['worst_subjects'], context['best_subjects'] = get_top_for_degrees(3, self.assessments)
+        context['worst_teachers'], context['best_teachers'] = get_top_for_degrees(3, self.qualifications)
+
         context['title'] = self.degree.title
-        print(context)
         return context
 
 
@@ -92,3 +90,10 @@ def get_top_qualifying(maximum, listed):
             best_qualifies = (listed.order_by('mark'))
 
     return worst_qualifies, best_qualifies
+
+
+def get_top_for_degrees(maximum, listed):
+    if len(listed) < maximum:
+        return listed, listed
+    listed.sort(key=lambda x: x[0].mark)
+    return listed[:3], list(reversed(listed[len(listed) - 3:]))
